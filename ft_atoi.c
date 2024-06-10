@@ -1,5 +1,47 @@
 int ft_atoi(char *str)
 {
+    short parity;
+    int number;
+    
+    parity = 0; 
+    number = 0; 
+    while (*str >= 9 && *str <= 13 || *str == 32)
+        ++str; 
+
+    while (*str == '+' || *str == '-')
+    {
+        if (*str == '-')
+            parity++;
+        ++str;
+    }
+    
+    while (*str >48 && *str <=57)
+    {
+        number *= 10; 
+        number += *str - 48; 
+        ++str;   
+    }
+    
+    if (!(parity % 2))
+        return (number);
+    return (-number);    
+}
+
+
+#include <stdio.h>
+int main (void)
+{
+    char *s = " ---+--+1234ab567"; // pide string
+    printf("%d\n", ft_atoi(s)); //devuelve int 
+    return 0;
+}
+
+
+
+
+/*-----------------------------------------EXPLICACION--------------------------------*/
+int ft_atoi(char *str)
+{
     short parity; // contador para + y -
     int number; // var para guardar numeros
     
