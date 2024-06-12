@@ -7,7 +7,7 @@ void ft_putchar(char c)
 
 void ft_putnbr(int nb)
 {
-    char charactr;
+   
     if (nb == -2147483648)
         {
         write(1, "-2147483648", 11);
